@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         UniversitySystem us = UniversitySystem.getInstance();
-        us.addCourse("Calculus");
+        String code = "StudyHard";
+        us.addCourse("Calculus", code);
         us.addTask("Calculus", "Demidovich, 666-668");
         us.addTask("Calculus", "Pinned pdf");
         us.addStudent("Calculus", "Vladimir Tkachev");
@@ -9,7 +10,7 @@ public class Main {
         us.addStudent("Calculus", "Pavel Fedorov");
         us.addMark("Calculus", "Pavel Fedorov", 5);
 
-        us.addCourse("NIR");
+        us.addCourse("NIR", code);
         us.addTask("NIR", "Report");
         for (String student : new String[] {"Vladimir Tkachev",
                                             "Oleg Yankovsky",

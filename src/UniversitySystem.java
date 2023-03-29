@@ -5,6 +5,8 @@ import java.util.Set;
 public class UniversitySystem {
     private static UniversitySystem instance;
 
+    private static String code = "StudyHard";
+
     private HashMap<String, ArrayList<String>> tasks;
     private HashMap<String, HashMap<String, ArrayList<Integer>>> marks;
 
@@ -23,6 +25,10 @@ public class UniversitySystem {
         return tasks.keySet();
     }
 
+    public void testCode(String attempt) {
+        if (!attempt.equals(code))
+            throw new SecurityException("The password is incorrect!");
+    }
     public void testCourse(String course) {
         if (!tasks.containsKey(course))
             throw new IllegalArgumentException("Couldn't find course " + course + "!");
@@ -40,7 +46,8 @@ public class UniversitySystem {
         testCourse(course);
         return marks.get(course).keySet();
     }
-    public void addCourse(String name) {
+    public void addCourse(String name, String attempt) {
+        testCode(attempt);
         tasks.put(name, new ArrayList<>());
         marks.put(name, new HashMap<>());
     }
